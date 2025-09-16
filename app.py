@@ -4,6 +4,8 @@ from datetime import datetime
 import os
 
 app = Flask(__name__)
+basedir = os.path.abspath(os.path.dirname(__file__))
+db_path = os.path.join(basedir, "todo.db")
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///todo.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
